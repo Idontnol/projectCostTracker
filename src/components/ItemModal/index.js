@@ -1,7 +1,7 @@
 import { useState} from "react";
 import './index.css';
 
-const ItemModal = ({ type, id, onClose, onSave }) => {
+const ItemModal = ({ type, id,projectId, onClose, onSave }) => {
   const isItem = type.includes("item");
   const isCost = type.includes("cost");
   const isEdit = type.includes("edit");
@@ -21,8 +21,8 @@ const ItemModal = ({ type, id, onClose, onSave }) => {
 
   const handleSave = () => {
     onSave(isItem
-      ? { id: form.id, name: form.name, cost: Number(form.cost), projectId: id?.projectId }
-      : { id: form.id, description: form.description, amount: Number(form.amount), projectId: id?.projectId });
+      ? { id: form.id, name: form.name, cost: Number(form.cost), projectId: projectId }
+      : { id: form.id, description: form.description, amount: Number(form.amount), projectId: projectId });
   };
 
   return (

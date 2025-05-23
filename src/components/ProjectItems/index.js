@@ -15,6 +15,12 @@ const ProjectItems=()=>{
       const [selectedTaskId, setSelectedTaskId] = useState(null);
       const [sortOrder, setSortOrder] = useState("asc");
       const {title}=tasks.filter(proj=>String(proj.id)===String(projectId))[0];
+    //   const [projectItems, setProjectItems] = useState(
+    //     items.filter(item => String(item.projectId) === String(projectId))
+    //     );
+    //     const [projectOtherCosts, setProjectOtherCosts] = useState(
+    //     otherCosts.filter(item => String(item.projectId) === String(projectId))
+    //     );
     
       const openModal = (type, taskId = null) => {
         setModalType(type);
@@ -53,7 +59,11 @@ const ProjectItems=()=>{
         const updatedTasks=currentTasks.filter(task=>task.id !== id);
         setCurrentTasks(updatedTasks);
       }
-      let filteredItems=items.filter(item=>String(item.projectId)===String(projectId));
+    // const deleteTask = (id) => {
+    //     setProjectItems(prev => prev.filter(item => item.id !== id));
+    //     setProjectOtherCosts(prev => prev.filter(cost => cost.id !== id));
+    // };
+    let filteredItems=items.filter(item=>String(item.projectId)===String(projectId));
      const filteredOtherCosts=otherCosts.filter(item=>String(item.projectId)===String(projectId)) ;
     //   if(filteredOtherCosts.length!==0)filteredItems.push(filteredOtherCosts);
       const totalCost=filteredItems.reduce((sum,item)=>sum+(item.cost || 0),0)+filteredOtherCosts.reduce((sum,item)=>sum+(item.amount || 0),0);
@@ -125,6 +135,7 @@ const ProjectItems=()=>{
         type={modalType}
         id={selectedTaskId}
         onClose={closeModal}
+         projectId={projectId} 
         onSave={(data) => {
             if (data.id === -1) {
             // New
