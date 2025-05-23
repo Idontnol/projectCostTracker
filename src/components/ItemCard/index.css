@@ -1,0 +1,83 @@
+/* index.css */
+
+.item-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  max-width: 300px;
+  margin: 12px;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.item-cost {
+  font-size: 1rem;
+  color: #333;
+  margin: 12px 0;
+  text-align:left;
+}
+
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.item-id {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.item-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.item-actions > .edit-btn,
+.item-actions >  .delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #555;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.item-actions >  .edit-btn {
+  background-color: #e0f3ff;
+  color: #007acc;
+}
+
+.item-actions >  .delete-btn {
+  background-color: #ffe0e0;
+  color: #cc0000;
+}
+
+.action-icon {
+  font-size: 1.1rem;
+}

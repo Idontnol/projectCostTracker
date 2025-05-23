@@ -1,0 +1,52 @@
+/* ProjectItems.css */
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sort-dropdown {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.total-cost {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.task-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.headerwithbutton{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.create-btn{
+    height:38px;
+}
+.project-entitle{
+    display:flex;
+    justify-content:row;
+    align-items:center;
+    gap:10px;
+}
+.project-entitle p{
+    font-size:18px;
+    margin-top:19px;
+}

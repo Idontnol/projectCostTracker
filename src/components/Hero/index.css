@@ -1,0 +1,44 @@
+.gap-navbar{
+    height:10vh;
+}
+.create-btn{
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+   /* Spacing inside the button */
+    font-size: 16px; /* Font size */
+    border-radius: 5px;
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+  }
+  
+ .inner-btn .create-btn {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    height:39px;
+  }
+  
+  .create-btn:active {
+    background-color: #3e8e41; /* Even darker green on active */
+    transform: scale(0.95); /* Shrink slightly when pressed */
+  }
+  
+  .create-btn:focus {
+    outline: 2px solid #4caf50; /* Green outline for accessibility */
+    outline-offset: 2px; /* Space between outline and button */
+  }
+  .right-side{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right:20px;
+    align-items: center; 
+    
+  }
+  .inner-btn{
+    background-color: #45a049;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+  }
+  
