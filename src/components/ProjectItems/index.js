@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { taskContext } from "../../context/taskContext";
+import {  useState } from "react";
+// import { taskContext } from "../../context/taskContext";
 import { useParams } from "react-router-dom";
 import { items, otherCosts, tasks } from "../../utils/data";
 import ItemCard from "../ItemCard";
@@ -32,6 +32,8 @@ const ProjectItems=()=>{
       const closeModal = () => {
         setIsModalOpen(false);
       };
+      const [, setRefresh] = useState(0);
+    const forceUpdate = () => setRefresh(prev => prev + 1);
     
     //   const saveTask = (task) => {
     //     if (task.id === -1) {
@@ -53,12 +55,24 @@ const ProjectItems=()=>{
     //     closeModal();
     //   };
       
-      const {currentTasks,setCurrentTasks}=useContext(taskContext);
+      //const {currentTasks,setCurrentTasks}=useContext(taskContext);
     
-      const deleteTask=(id)=>{
-        const updatedTasks=currentTasks.filter(task=>task.id !== id);
-        setCurrentTasks(updatedTasks);
-      }
+      const deleteTask = (id) => {
+  // Remove from items array
+  const indexInItems = items.findIndex(item => item.id === id);
+  if (indexInItems !== -1) {
+    items.splice(indexInItems, 1); // delete item
+  }
+
+  // Remove from otherCosts array
+  const indexInCosts = otherCosts.findIndex(cost => cost.id === id);
+  if (indexInCosts !== -1) {
+    otherCosts.splice(indexInCosts, 1); // delete cost
+  }
+  // Re-render UI
+  forceUpdate();
+
+};
     // const deleteTask = (id) => {
     //     setProjectItems(prev => prev.filter(item => item.id !== id));
     //     setProjectOtherCosts(prev => prev.filter(cost => cost.id !== id));

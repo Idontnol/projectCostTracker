@@ -4,7 +4,7 @@ import './index.css';
 import { taskContext } from "../../context/taskContext";
 import TaskModal from "../TaskModal";
 import { IoMdAdd } from "react-icons/io";
-import { deleteProject } from "../../utils/firebaseUtils";
+//import { deleteProject } from "../../utils/firebaseUtils";
 
 const Hero= () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,10 +43,10 @@ const Hero= () => {
   
   const {currentTasks,setCurrentTasks}=useContext(taskContext);
 
-  // const deleteTask=(id)=>{
-  //   const updatedTasks=currentTasks.filter(task=>task.id !== id);
-  //   setCurrentTasks(updatedTasks);
-  // }
+  const deleteTask=(id)=>{
+    const updatedTasks=currentTasks.filter(task=>task.id !== id);
+    setCurrentTasks(updatedTasks);
+  }
   
 
   return (
@@ -73,7 +73,7 @@ const Hero= () => {
             status={task.status}
             dueDate={task.dueDate}
             onEdit={() => openModal("edit", task.id)}
-            onDelete={() => deleteProject(task.id)}
+            onDelete={() => deleteTask(task.id)}
             onShow={() => openModal("show", task.id)}
 
           />

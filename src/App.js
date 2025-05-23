@@ -7,13 +7,15 @@ import SignUpLoginModal from './components/Authenticate';
 import AllTasks from './components/AllTasks';
 import CompletedTasks from './components/CompletedTasks';
 import PendingTasks from './components/PendingTasks';
-import { tasks } from './utils/data';
+import { items, otherCosts, tasks } from './utils/data';
 import Hero from './components/Hero';
 import ProjectItems from './components/ProjectItems';
 
 function App() {
   const [showSignUpModal,setShowSignUpModal]=useState(false);
   const [currentTasks,setCurrentTasks]=useState(tasks);
+  const [projectItems, setProjectItems] = useState(items);
+  const [projectOtherCosts, setProjectOtherCosts] = useState(otherCosts );
 
   const [activeProject,setActiveProject]=useState(null);
  
@@ -21,7 +23,7 @@ function App() {
   return (
     <div className="App">
         <BrowserRouter>
-          <taskContext.Provider value={{currentTasks,setCurrentTasks,activeProject,setActiveProject}}>
+          <taskContext.Provider value={{currentTasks,setCurrentTasks,activeProject,setActiveProject,projectItems,setProjectItems,projectOtherCosts,setProjectOtherCosts}}>
             <Navbar setShowSignUpModal={setShowSignUpModal} />
             {showSignUpModal && <SignUpLoginModal setShowSignUpModal={setShowSignUpModal} />}
             {/* <TaskBoard/> */}
